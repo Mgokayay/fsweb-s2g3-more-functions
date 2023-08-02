@@ -16,9 +16,12 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  let text = path.split("/");
+  let sonIndex = text.length -1
+  return text[sonIndex]
 }
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"));
 
 /*
   GÖREV 2
@@ -37,10 +40,18 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek input:  [109, 216, 288, 143, 71, 185, -278, 194, 5]
   örnek output: 104
 */
-
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(arr1) {
+  if (arr1.length == 0) {
+    return null;
+  } else {
+    const average = arr1.reduce((total, sayi) => total + sayi , 0)/ arr1.length
+    return Math.round(average);
+  }
 }
+console.log(ortalamaBul([4]));
+console.log(ortalamaBul([50, -26, 153, 7]));
+console.log(ortalamaBul([109, 216, 288, 143, 71, 185, -278, 194, 5]));
+console.log(ortalamaBul([]));
 
 /*
   GÖREV 3
@@ -62,9 +73,24 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+const sayi = [109, 216, 288, 143, 71, 185, -278, 194, 5]
+function ortalamadanBuyukleriBul(numbers, callback) {
+  if (numbers.length == 0) {
+    return null;
+  }
+  const bigger = [];
+  const smaller = [];
+  const total = callback(numbers);
+  for (let i =0; i < numbers.length; i++) {
+    if (numbers[i] >= total) {
+      bigger.push(numbers[i]);
+    } else {
+      smaller.push(numbers[i]);
+    }
+  }
+  return bigger ;
 }
+console.log(ortalamadanBuyukleriBul)
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
